@@ -13,7 +13,9 @@ let io = new Server(expressServer);
 io.on('connection', function(socket){
     // console.log("New User Connected");
     socket.on('chat', function(msgData){
-        console.log(msgData);
+        // console.log(msgData); Data catch from client
+        io.emit('chat_transfer', msgData); // send the data to client which already send from client
+
     })
 })
 
