@@ -3,10 +3,16 @@ const app = express();
 const http = require('http');
 const expressServer = http.createServer(app)
 
+//  -------> Create socket.io server
+const {Server} = require("socket.io");
+let io = new Server(expressServer);
 
 
 
 
+io.on('connection', function(socket){
+    console.log("New User Connected");
+})
 
 
 //-------> HTML file directory linked
